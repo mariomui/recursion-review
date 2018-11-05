@@ -3,6 +3,8 @@
 
 // but you don't so you're going to write it from scratch:
 
+
+
 var stringifyJSON = function(obj) {
   // your code goes here
   if (obj == null || typeof obj === 'number' || typeof obj === 'boolean') {
@@ -18,16 +20,19 @@ var stringifyJSON = function(obj) {
         arr.push(stringifyJSON(obj[i]));
       }
     return '[' + arr + ']';
-    } 
-    if (typeof obj !== 'function' || typeof obj !== 'undefined') {
-      var objs = [];
-      for (var key in obj) {
+    }
+    var objs = [];
+    for (var key in obj) {
+      if (typeof obj[key] !== 'function' && typeof obj[key] !== 'undefined') {
         var pair = [];
         pair.push(`"${key}"`);
         pair.push(stringifyJSON(obj[key]));
         objs.push(pair.join(':'));
       }
-      return '{' + objs + '}';
     }
+    return '{' + objs + '}';
   }
+  // if (typeof obj === "function") {
+
+  // }
 };
