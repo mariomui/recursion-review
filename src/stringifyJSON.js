@@ -7,7 +7,7 @@
 
 var stringifyJSON = function(obj) {
   // your code goes here
-  if (obj == null || typeof obj === 'number' || typeof obj === 'boolean') {
+  if (obj == null) {
     return '' + obj;
   }
   if (typeof obj === 'string') {
@@ -32,7 +32,5 @@ var stringifyJSON = function(obj) {
     }
     return '{' + objs + '}';
   }
-  // if (typeof obj === "function") {
-
-  // }
+  return '' + obj;
 };
